@@ -12,7 +12,7 @@ class Conductor {
 	
 }
 
-class Auto {
+class Vehiculo {
 	var motor
 	var tanque
 	var bateria
@@ -24,7 +24,34 @@ class Auto {
 	method andar(kms){
 		tanque.disminuir(kms/10)
 	}
+	method velocidad(){
+	      return 70 + 40.max(tanque.litrosDisponibles())
+	}
 }
+
+class Ferrari inherits Vehiculo{
+     override method velocidad(){
+     	 return super()*3
+     }
+}
+
+
+class Falcon inherits Vehiculo{
+     override method velocidad(){
+     	 return 100
+     }
+}
+
+class Camioneta inherits Vehiculo{
+     var cantidadDeAsientos
+     
+     override method velocidad() {
+     	return cantidadDeAsientos*15
+     }
+     
+     method cantidadDeAsientos()= cantidadDeAsientoss
+}
+
 
 
 class Motor {
@@ -41,9 +68,10 @@ class Tanque {
 	method disminuir(litros){
 		if (litros > litrosDisponibles){
 			throw new NaftaInsuficienteException()
-		}
+		},
 		litrosDisponibles -= litros
 	}
+	method litrosDisponibles() = litrosDisponibles
 }
 
 class Bateria {
