@@ -22,16 +22,14 @@ class Vehiculo {
 		motor.chequearAceite()
 	}
 	method andar(kms){
-		tanque.disminuir(kms/10)
+		tanque.disminuir(kms/self.velocidad())
 	}
-	method velocidad(){
-	      return 70 + 40.max(tanque.litrosDisponibles())
-	}
+	method velocidad()
 }
 
 class Ferrari inherits Vehiculo{
      override method velocidad(){
-     	 return super()*3
+     	 return 120;
      }
 }
 
@@ -39,6 +37,10 @@ class Ferrari inherits Vehiculo{
 class Falcon inherits Vehiculo{
      override method velocidad(){
      	 return 100
+     }
+     override method andar(kms){
+     	super(kms)
+	bateria.disminuir(10);
      }
 }
 
