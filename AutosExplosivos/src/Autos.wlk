@@ -1,3 +1,7 @@
+class AceiteException inherits Exception {}
+class BateriaInsuficienteException inherits Exception {}
+class NaftaInsuficienteException inherits Exception {}
+
 class Conductor {
 	var auto
 	
@@ -51,7 +55,7 @@ class Camioneta inherits Vehiculo{
      	return cantidadDeAsientos*15
      }
      
-     method cantidadDeAsientos()= cantidadDeAsientoss
+     method cantidadDeAsientos()= cantidadDeAsientos
 }
 
 
@@ -70,7 +74,7 @@ class Tanque {
 	method disminuir(litros){
 		if (litros > litrosDisponibles){
 			throw new NaftaInsuficienteException()
-		},
+		}
 		litrosDisponibles -= litros
 	}
 	method litrosDisponibles() = litrosDisponibles
@@ -86,6 +90,4 @@ class Bateria {
 	}
 } 
 
-class AceiteException inherits Exception {}
-class BateriaInsuficienteException inherits Exception {}
-class NaftaInsuficienteException inherits Exception {}
+
